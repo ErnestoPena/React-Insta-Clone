@@ -33,8 +33,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.2",
-    "@fortawesome/fontawesome-pro": "^5.8.2"
-  }
+  "devDependencies": {}
 }
