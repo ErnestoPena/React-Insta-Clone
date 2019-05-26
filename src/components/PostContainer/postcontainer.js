@@ -18,10 +18,10 @@ class PostCont extends React.Component {
             <div className="post_container">
                 <Userinfo myuser = {this.props.mybarsearch}/>
                 <Postcontent mypicture ={this.props.mybarsearch}/>
-                <Useraction />
+                <Useraction triggerlikes = {this.props.triggerlikes}/>
                 <Likes likes_var = {this.props.mybarsearch}/>
                     {this.props.mybarsearch.comments.map(mess_map => (
-                        <Messagesection message = {mess_map}/>
+                        <Messagesection message = {mess_map} key={mess_map.com_id}/>
                         ))}   
                 <Post />    
             </div>

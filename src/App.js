@@ -10,15 +10,30 @@ class App extends React.Component {
   constructor(props) {
     super(props);
       this.state= {
-         mydata: dummyData
+         mydata: dummyData,
+         like_state: false
       }
   }
+
+  triggerlikes = (e) => {
+    e.preventDefault();
+    console.log('Click')
+     
+      // this.setState = {
+      //   if (this.like_state = false) {
+      //   this.like_state: false
+      //   }
+      // }
+     
+    
+
+  } 
   render() {
     return(
      <div className="app_css">
       <BarSearch />
         {this.state.mydata.map(postmap => (
-            <PostCont mybarsearch = {postmap} key={postmap.id} />
+            <PostCont mybarsearch = {postmap} key={postmap.username} triggerlikes = {this.triggerlikes}/>
         ))}
     </div>  
   );

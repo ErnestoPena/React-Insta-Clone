@@ -8,7 +8,7 @@ import share from './share.png';
 const Useraction = props => {
     return(
         <div className="useraction_class">
-            <div><img className="message_logo" src={like_heart} alt="Like Me"/></div>
+            <div onClick={(e) => props.triggerlikes(e)}> <img className="message_logo" src={like_heart} alt="Like Me"/></div>
             <div><img className="message_logo" src={message_logo} alt="Message"/></div>
             <div><img className="message_logo" src={share} alt="Share"/></div>
         </div>

@@ -5,7 +5,7 @@ const Messagesection = props => {
     return(
         <div className="messagesection_class">
             <div>
-              <p className="user_name_class"> <a href="#">{props.message.username}</a><span style={{fontWeight:'200' , marginLeft: '7px'}}>{props.message.text}</span></p>
+              <p className="user_name_class"> <a href="https://cocacola.com">{props.message.username}</a><span style={{fontWeight:'200' , marginLeft: '7px'}}>{props.message.text}</span></p>
               
             </div>
         </div>
