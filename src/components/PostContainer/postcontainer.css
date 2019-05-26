@@ -1,0 +1,26 @@
+.post_container:first-child {
+    margin-top: 125px;
+}
+
+.post_container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-top: 63px;
+    width:616px;
+    height: auto;
+    background-color: white;
+    margin-bottom: 0px;
+    border: 0.5px solid rgb(197, 193, 193);
+    padding: 0.5px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .center_wrapper {
+    border: 0.5px solid rgb(197, 193, 193);
+    padding: 0.5px;
+} */

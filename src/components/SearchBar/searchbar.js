@@ -1,7 +1,10 @@
 import React from 'react';
 import './searchbar.css';
 import logo from './logo.png';
+import user from './instuser.png';
 import logotext from './logotext.png';
+import hearticon from './Instagram-Heart.png';
+import explore from './explore.png';
 
 
 
@@ -16,7 +19,9 @@ const BarSearch = props => {
                     <input className="search" type="text" placeholder="&#xF002; Search"></input>
                 </div>
                 <div className="account_logos">
-                <i class="fal fa-search"></i>
+                    <img className="logo" src={explore} alt="Explore"/>    
+                    <img className="logo" src={hearticon} alt=""/>
+                    <img className="logo" src={user} alt="User Account"/>
                 </div>
             </div>
            
