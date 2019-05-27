@@ -1,5 +1,5 @@
 .postcontent_class {
-    width: 616px;
+    width: 100%;
     height: auto;
     padding: 0px;
     margin: 0px;
@@ -10,5 +10,10 @@
 
 .content_image {
     max-width:100%;
-    max-height:100%;
+    max-height:auto;
+}
+
+img {
+    max-width:100%;
+    max-height:auto;
 }
