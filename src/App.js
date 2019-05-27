@@ -29,7 +29,7 @@ class App extends React.Component {
     if (this.state.local_user === "") {
       this.openForm()
     } else {
-      this.submit()
+      this.savepost()
     }
   }
 
@@ -50,6 +50,10 @@ class App extends React.Component {
    e.preventDefault()
    this.closeForm()
    console.log(this.state.local_user)
+ }
+
+ savepost = () => {
+   
  }
 
    
