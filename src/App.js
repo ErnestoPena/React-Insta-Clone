@@ -52,8 +52,11 @@ class App extends React.Component {
    console.log(this.state.local_user)
  }
 
- savepost = () => {
-   
+ savepost = (post) => {
+   const newpost= {
+    username: this.state.local_user
+    
+   }
  }
 
    
