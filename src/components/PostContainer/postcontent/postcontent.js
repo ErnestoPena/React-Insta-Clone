@@ -1,6 +1,6 @@
 import React from 'react';
 import './postcontent.css';
-import { userInfo } from 'os';
+// import { userInfo } from 'os';
 
 const Postcontent = props => {
     return(
