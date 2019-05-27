@@ -53,7 +53,7 @@ class App extends React.Component {
     return(
      <div className="app_css">
      <div class="form-popup" id="myForm">
-            <form action="submit" className="form-container">
+            <form onSubmit={this.submit} className="form-container">
                 <h1>User Name</h1>
                 <input style={{width:'90%'}} className ="usernameinput" type="text" placeholder="Enter user name" name="username"></input>
                 <button type="submit" class="btn">Submit</button>
