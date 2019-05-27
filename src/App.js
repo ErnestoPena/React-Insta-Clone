@@ -41,24 +41,26 @@ class App extends React.Component {
   document.getElementById("myForm").style.display = "none";
  }
 
+ textchange = (e) => {
+   this.setState({local_user: e.target.value})
+   console.log(e.target.value)
+ }
+
  submit = (e) => {
    e.preventDefault()
-   this.setState({
-     
-   })
-
    this.closeForm()
+   console.log(this.state.local_user)
  }
 
    
   render() {
     return(
      <div className="app_css">
-     <div class="form-popup" id="myForm">
-            <form onSubmit={this.submit} className="form-container">
+     <div className="form-popup" id="myForm">
+            <form  onSubmit= {(e) =>this.submit(e)} className="form-container">
                 <h1>User Name</h1>
-                <input style={{width:'90%'}} className ="usernameinput" type="text" placeholder="Enter user name" name="username"></input>
-                <button type="submit" class="btn">Submit</button>
+                <input onChange={this.textchange} style={{width:'90%'}} className ="usernameinput" type="text" placeholder="Enter user name" name="username"></input>
+                <button onClick= {this.submit} type="submit" className="btn">Submit</button>
                 <button type="button" className="btn cancel" onClick={this.closeForm}>Close</button>
             </form>
          </div>
