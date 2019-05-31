@@ -4,8 +4,8 @@ import './postcontent.css';
 
 const Postcontent = props => {
     return(
-        <div className="postcontent_class">
-            <img className="content_image" src={props.mypicture.imageUrl} alt=""/>
+        <div onDoubleClick={(e)=>props.triggerlikes(e, props.mydata.username)} className="postcontent_class">
+            <img className="content_image" src={props.mydata.imageUrl} alt=""/>
         </div>
     )
 }

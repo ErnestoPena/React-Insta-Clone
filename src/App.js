@@ -11,61 +11,98 @@ class App extends React.Component {
     super(props);
       this.state= {
          mydata: dummyData,
-         like_state: false,
-         local_user: ""
+         local_user: "",
+         post_comment: "",
       }
   }
-
-  triggerlikes = (e) => {
+//Function to save the state of the likes
+  triggerlikes = (e, username) => {
     e.preventDefault();
-    console.log(this.state.mydata.liked)
-      this.setState({
-        like_state: !this.state.liked
+      this.setState(preState => {
+        const updatedlike = preState.mydata.map(mydataupdated => {
+            if (mydataupdated.username === username) {
+              mydataupdated.liked = !mydataupdated.liked
+              mydataupdated.liked ?  mydataupdated.likes = mydataupdated.likes + 1 :  mydataupdated.likes = mydataupdated.likes - 1
+            }
+            return mydataupdated;
+        })
+        return {
+          mydata : updatedlike
+        }
       })
     }
-  
-  postaction = (e) =>{
+
+ 
+  //Function to trigger User Form if there is no Locar Username state
+  postaction = (e, username) =>{
     e.preventDefault();
     if (this.state.local_user === "") {
       this.openForm()
     } else {
-      this.savepost()
+      this.savepost(e, username)
     }
   }
 
+ //Function to open the form 
  openForm(){
   document.getElementById("myForm").style.display = "block"
  }   
 
+ //Function to close the form 
  closeForm() {
   document.getElementById("myForm").style.display = "none";
  }
 
+  //Function to save the state of the user name in the form
  textchange = (e) => {
    this.setState({local_user: e.target.value})
    console.log(e.target.value)
  }
 
+ //This is to close the form only. state is already saved
  submit = (e) => {
    e.preventDefault()
    this.closeForm()
    console.log(this.state.local_user)
  }
 
- savepost = (post) => {
-   const newpost= {
-    username: this.state.local_user
-    
-   }
+ //Function to save the state of the post message
+ postchange = (e) =>{
+   this.setState({
+    post_comment: e.target.value
+   }) 
  }
 
-   
+ //This is to save the post comment, user name,  
+ savepost = (e, username) => {
+   e.preventDefault()
+  const currentuser = this.state.local_user;
+  const comment = this.state.post_comment;
+  const mydate = Date.now();
+   this.setState(prevState => {
+     const myupdatedpost = prevState.mydata.map(updatepost => {
+       if (updatepost.username === username) {
+         updatepost.comments.push({'com_id':mydate, 'username':currentuser ,'text':comment})
+         console.log(mydate, currentuser ,comment)
+        }
+        document.getElementsByClassName('post_input').value = ""
+        return updatepost
+     })
+     return {
+       mydata : myupdatedpost
+     }
+   })
+ }
+
+  
   render() {
     return(
      <div className="app_css">
+      
      <div className="form-popup" id="myForm">
             <form  onSubmit= {(e) =>this.submit(e)} className="form-container">
-                <h1>User Name</h1>
+                <h2>Enter User Name first</h2>
+                <h3>Click on "Post" after submit</h3>
                 <input onChange={this.textchange} style={{width:'90%'}} className ="usernameinput" type="text" placeholder="Enter user name" name="username"></input>
                 <button onClick= {this.submit} type="submit" className="btn">Submit</button>
                 <button type="button" className="btn cancel" onClick={this.closeForm}>Close</button>
@@ -73,8 +110,8 @@ class App extends React.Component {
          </div>
 
       <BarSearch />
-        {this.state.mydata.map(postmap => (
-            <PostCont mybarsearch = {postmap} key={postmap.username} triggerlikes = {this.triggerlikes} like_state = {this.state.like_state} postaction={this.postaction}/>
+        {this.state.mydata.map((postmap,i) => (
+            <PostCont mydata = {postmap} key={postmap.username} postaction={this.postaction} postchange={this.postchange} triggerlikes = {this.triggerlikes}/> 
         ))}
     </div>  
   );

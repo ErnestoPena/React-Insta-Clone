@@ -7,44 +7,18 @@ import Messagesection from './messagesection/messagesection';
 import Likes from './likes/likes';
 import Post from './post/post';
 
-// class PostCont extends React.Component {
-//     constructor(props) {
-//         super(props);
-//     }
-//     render() {
-    
-//     return(
-//        <div className="wrapper"> 
-//             <div className="post_container">
-//                 <Userinfo myuser = {this.props.mybarsearch}/>
-//                 <Postcontent mypicture ={this.props.mybarsearch}/>
-//                 <Useraction triggerlikes = {this.props.triggerlikes}/>
-//                 <Likes likes_var = {this.props.mybarsearch}/>
-//                     {this.props.mybarsearch.comments.map(mess_map => (
-//                         <Messagesection message = {mess_map} key={mess_map.com_id}/>
-//                         ))}   
-//                 <Post />    
-//             </div>
-//         </div>
-//     )
-//    }   
-// }
-
-
-
 const PostCont = (props) => {
-    console.log(props)
     return (
         <div className="wrapper"> 
              <div className="post_container">
-                 <Userinfo myuser = {props.mybarsearch}/>
-                 <Postcontent mypicture ={props.mybarsearch}/>
-                 <Useraction triggerlikes = {props.triggerlikes} like_state = {props.like_state}/>
-                 <Likes likes_var = {props.mybarsearch}/>
-                     {props.mybarsearch.comments.map(mess_map => (
-                         <Messagesection message = {mess_map} key={mess_map.com_id}/>
+                 <Userinfo myuser = {props.mydata}/>
+                 <Postcontent mydata ={props.mydata} triggerlikes={props.triggerlikes}/>
+                 <Useraction triggerlikes={props.triggerlikes} mydata={props.mydata}/>
+                 <Likes likes_var = {props.mydata}/>
+                     {props.mydata.comments.map((comments_map, j) => (
+                         <Messagesection message = {comments_map} key={comments_map.com_id} />
                          ))}   
-                 <Post postaction= {props.postaction}/>    
+                 <Post postaction= {props.postaction} postchange={props.postchange} mydata={props.mydata}/>    
              </div>
          </div>
     )

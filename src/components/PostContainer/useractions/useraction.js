@@ -7,12 +7,10 @@ import share from './share.png'
 
 
 const Useraction = props => {
-    // console.log(props)
-     var src_type = props.like_state === false ? like_heart_clear : like_heart_red;
-
+     var src_type = props.mydata.liked ? like_heart_red :  like_heart_clear ;
     return(
         <div className="useraction_class">
-            <div onClick={(e) => props.triggerlikes(e)}> <img className="message_logo" src={src_type} alt="Like Me"/></div>
+            <div onClick={(e) => props.triggerlikes(e, props.mydata.username)}> <img className="message_logo" src={src_type} alt="Like Me"/></div>
             <div><img className="message_logo" src={message_logo} alt="Message"/></div>
             <div><img className="message_logo" src={share} alt="Share"/></div>
         </div>
