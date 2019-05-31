@@ -85,7 +85,10 @@ class App extends React.Component {
          updatepost.comments.push({'com_id':mydate, 'username':currentuser ,'text':comment})
          console.log(mydate, currentuser ,comment)
         }
-        document.getElementsByClassName('post_input').value = ""
+        this.setState({
+          post_comment: ""
+        }) 
+
         return updatepost
      })
      return {
@@ -111,7 +114,7 @@ class App extends React.Component {
 
       <BarSearch />
         {this.state.mydata.map((postmap,i) => (
-            <PostCont mydata = {postmap} key={postmap.username} postaction={this.postaction} postchange={this.postchange} triggerlikes = {this.triggerlikes}/> 
+            <PostCont mydata = {postmap} key={postmap.username} postaction={this.postaction} postchange={this.postchange} triggerlikes = {this.triggerlikes} post_comment={this.state.post_comment}/> 
         ))}
     </div>  
   );
